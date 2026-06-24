@@ -2,35 +2,31 @@
 type: system
 file: CLAUDE.md
 audience: [human, AI agent]
-status: template
+status: personal
 ---
 # Vault Intelligence System — CLAUDE.md
 
 > This file is the vault manual. Humans read it to remember conventions; AI agents (Hermes, Claude, future subagents) read it to understand what the vault expects of them. Keep it current; every change to this file is a vault-wide convention change.
 
-> **Template note:** This is the generic, identity-free version of CLAUDE.md. Fork this vault, then replace the contents of the `## Identity` section with your own. Everything below applies to any vault built on this structure.
+## Identity
 
-## Identity (replace with your own)
-
-- **Name:** [Your name]
-- **Primary domain:** [e.g., "Software engineer", "Medical student", "Researcher"]
-- **Stage:** [Where you are in your field]
-- **Timezone:** [IANA timezone, e.g., "America/New_York"]
-- **Languages:** [List primary languages]
+- **Name:** Adam Darcos
+- **Primary domain:** Medical student — Semmelweis University, Budapest
+- **Stage:** Final-year (Year 6)
+- **Timezone:** Europe/Budapest (CET/CEST)
+- **Languages:** English (primary), Hungarian (native), German + Spanish (beginner)
 
 ## Vault Purpose
 
-Long-term personal knowledge management for an AI-assisted personal OS. The vault holds permanent knowledge; an AI agent (Hermes, Claude, or similar) orchestrates tasks, automation, and synthesis on top of it. Optimised for **retrieval-first** — the goal is to find any note in under 30 seconds.
+Long-term personal knowledge management for a Hermes-powered personal AI-OS. The vault holds permanent knowledge; Hermes orchestrates tasks, automation, and synthesis on top of it. Optimised for **retrieval-first** — the goal is to find any note in under 30 seconds.
 
 ## Primary Intellectual Interests
 
-*[Section to maintain over time. Five to ten high-level topics. Should be reviewed quarterly.]*
-
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Clinical reasoning and differential diagnosis
+2. Cardiology
+3. Neuroanatomy and cognition
+4. Evidence-based medicine and statistics
+5. Personal performance (sleep, focus, exercise)
 
 ## Active Projects
 
@@ -51,7 +47,7 @@ Long-term personal knowledge management for an AI-assisted personal OS. The vaul
 | `02 - NOTES/meetings/` | Meeting notes. |
 | `02 - NOTES/study/` | Study-session captures. |
 | `03 - PROJECTS/` | Active multi-step projects with their own `overview.md`, `tasks.md`, `notes/`. |
-| `04 - AREAS/` | Ongoing responsibilities (work, school, business, health, finances — fill with what's true for you). |
+| `04 - AREAS/` | Ongoing responsibilities (med-school, business, AI-OS, health, finances). |
 | `05 - RESOURCES/` | Reference topics, people, tools. |
 | `06 - HERMES-OUTPUTS/` | Agent-generated content — isolated from human notes. |
 | `06 - HERMES-OUTPUTS/briefings/` | Morning briefs. |
@@ -59,9 +55,9 @@ Long-term personal knowledge management for an AI-assisted personal OS. The vaul
 | `06 - HERMES-OUTPUTS/syntheses/` | Weekly/monthly syntheses. |
 | `06 - HERMES-OUTPUTS/reviews/` | Project health reviews. |
 | `07 - ARCHIVE/` | Completed/old material. |
-| `08 - SYSTEM/` | This file, templates, skill specs, device-setup docs. |
-| `08 - SYSTEM/templates/` | Templater templates. Eight note types shipped with the template. |
-| `08 - SYSTEM/skills/` | Spec docs for AI vault-aware skills. |
+| `08 - SYSTEM/` | CLAUDE.md, templates, skill specs, device-setup docs. |
+| `08 - SYSTEM/templates/` | Templater templates. 8 note types. |
+| `08 - SYSTEM/skills/` | Spec docs for Hermes vault-aware skills. |
 | `09 - MOCS/` | Maps of Content — navigational hubs. Build after a topic has ≥15–20 permanent notes. |
 
 ## Note Type Conventions
@@ -97,7 +93,8 @@ When acting on this vault:
 4. **Detecting patterns:** require ≥3–4 independent notes before naming a pattern. Two notes is coincidence.
 5. **Writing in the vault:** never write directly into `02 - NOTES/permanent/` from a synthesis without leaving a backlink in the source note. Atomic notes belong to humans; agent output belongs in `06 - HERMES-OUTPUTS/`.
 6. **Modifying CLAUDE.md:** a change to this file is a vault-wide convention change. Log it in the commit message with full reasoning.
-7. **Honoring secrets:** never write secrets into notes. The vault's `.gitignore` excludes `attachments/secrets/` for a reason. If you discover a secret in a note during processing, flag it to the user and move it out of the tracked vault.
+7. **Honoring secrets:** never write secrets into notes. The vault's `.gitignore` excludes `attachments/secrets/` for a reason. If you discover a secret in a note during processing, flag it to me and move it out of the tracked vault.
+8. **Clinical claims:** when Hermes helps with medical content, default to conservative — cite the source note, never invent clinical recommendations, flag uncertainty explicitly. This vault is a study aid, not a clinical decision tool.
 
 ## Update Schedule
 
@@ -108,20 +105,22 @@ When acting on this vault:
 
 ## Sync Model
 
-- **Source of truth:** wherever you host this vault (a VPS, your local machine, a NAS). The `08 - SYSTEM/device-setup.md` document captures the specifics for your topology.
-- **Versioning:** private git repo (this one). 
-- **Auto-commit:** depends on the Obsidian Git plugin configuration in `.obsidian/plugins/obsidian-git/data.json`.
+- **Source of truth:** VPS (`/root/Documents/Obsidian Vault/`, Tailscale IP `100.96.209.60`).
+- **Public template:** `DarcosNetwork/obsidian-hivemind-base` (clean, identity-free, MIT-licensed).
+- **This private working copy:** `DarcosNetwork/obsidian-hivemind`.
+- **Update flow:** when public template gets updates, pull/cherry-pick into this repo. When this repo gets personal changes, do *not* push back to public.
+- **Auto-commit:** Obsidian Git plugin, every 30 minutes.
 - **Auto-push:** enabled on devices where credentials permit.
 - **Manual override:** always available; nothing in this vault is gated on automation.
 
 ## Security
 
-- Vault contents are personal and unencrypted at rest on the host. Acceptable for single-tenant, controlled-access setups.
-- Secrets must NEVER live in notes. The vault's `.gitignore` excludes `attachments/secrets/`; use that for anything sensitive.
-- Personally identifiable information about other people (medical, financial, etc.) must NEVER live in this vault unless you have explicit consent and a documented need. Use a separate secure storage for any PHI / PII.
+- Vault contents are personal and unencrypted at rest on the VPS. Acceptable per the "VPS is single-tenant, Tailscale-only ingress" model.
+- Secrets must NEVER live in notes. Drop in `attachments/secrets/` (gitignored) and reference the path only.
+- Patient-identifiable information must NEVER live in this vault. Use a separate secure storage for any PHI.
 
 ## See also
 
-- `00 - INBOX/2026-06-24 — Vault Setup Notes.md` — what was set up at template creation time, what's open for the fork owner to decide.
-- `08 - SYSTEM/device-setup.md` — how to connect desktop/mobile clients (set up after first fork).
-- `08 - SYSTEM/templates/` — the 8 note templates shipped with this vault.
+- `/root/.hermes/plans/2026-06-24_obsidian-second-brain.md` — the plan that built this vault (Hermes-internal).
+- `08 - SYSTEM/device-setup.md` — Tailscale SSH coordinates and per-device setup.
+- `08 - SYSTEM/templates/` — the 8 note templates.
