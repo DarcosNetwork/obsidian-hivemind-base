@@ -1,13 +1,16 @@
 # =========================================================
-# OBSIDIAN — never commit local-only state
+# OBSIDIAN — per-device state never committed
 # =========================================================
-# Each Obsidian client regenerates this for itself on first run.
-# We keep it out of git so the file stays local, but we do NOT
-# commit it because per-device plugins/CSS/layout diverges.
+# Each Obsidian client regenerates these per device on first run.
+# We commit `data.json` (settings — these should sync across devices)
+# but ignore the version-pinned binary/metadata files which Obsidian
+# writes when you install/enable a plugin on a specific device.
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-.obsidian/plugins/*/data.json
 .obsidian/plugins/*/.hot-reload
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/manifest.json
+.obsidian/plugins/*/styles.css
 .trash/
 .DS_Store
 Thumbs.db

@@ -1,0 +1,42 @@
+{
+  "commitMessage": "vault: {{date}}",
+  "autoCommitMessage": "vault: auto-commit {{date}}",
+  "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
+  "autoSaveInterval": 30,
+  "autoPushInterval": 0,
+  "autoPullInterval": 60,
+  "autoPullOnBoot": true,
+  "autoCommitOnlyStaged": false,
+  "autoBackupAfterFileChange": false,
+  "differentIntervalCommitAndPush": false,
+  "disablePush": false,
+  "pullBeforePush": true,
+  "syncMethod": "merge",
+  "mergeStrategy": "none",
+  "basePath": "",
+  "gitDir": "",
+  "treeStructure": false,
+  "refreshSourceControl": true,
+  "refreshSourceControlTimer": 7000,
+  "showStatusBar": true,
+  "showBranchStatusBar": true,
+  "changedFilesInStatusBar": true,
+  "updateSubmodules": false,
+  "showFileMenu": true,
+  "diffStyle": "split",
+  "hunks": {
+    "showSigns": false,
+    "hunkCommands": false,
+    "statusBar": "disabled"
+  },
+  "lineAuthor": {
+    "show": false,
+    "authorDisplay": "initials",
+    "followMovement": "inactive",
+    "showCommitHash": false,
+    "dateTimeFormatOptions": "date",
+    "coloringMaxAge": "1y"
+  },
+  "listChangedFilesInMessageBody": false,
+  "showUnstagedChanges": false
+}

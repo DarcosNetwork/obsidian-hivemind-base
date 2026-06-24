@@ -1,0 +1,27 @@
+{
+  "templates_folder": "08 - SYSTEM/templates",
+  "trigger_on_file_creation": false,
+  "trigger_on_file_creation_regex": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": {
+    "00 - INBOX/": "",
+    "01 - LIBRARY/": "literature",
+    "02 - NOTES/permanent/": "permanent",
+    "02 - NOTES/daily/": "daily",
+    "02 - NOTES/meetings/": "meeting",
+    "02 - NOTES/study/": "",
+    "03 - PROJECTS/": "project",
+    "04 - AREAS/": "decision",
+    "05 - RESOURCES/topics/": "reference"
+  },
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": true,
+  "enabled_javascript": true,
+  "enable_system_commands": [],
+  "shell_path": "",
+  "cursor_jump_type": "oldest",
+  "cursor_offset": 0,
+  "startup_scripts": "",
+  "file_map": {}
+}

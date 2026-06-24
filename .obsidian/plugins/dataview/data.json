@@ -1,0 +1,14 @@
+{
+  "enableDataviewJs": true,
+  "enableInlineDataview": true,
+  "renderNullAs": "-",
+  "refreshEnabled": true,
+  "refreshInterval": 1000,
+  "defaultDateFormat": "YYYY-MM-DD",
+  "maximumGeneratedFiles": 200,
+  "inlineJsQueryPrefix": "$=",
+  "inlineQueryPrefix": "=",
+  "listIndicator": false,
+  "tableIdColumnName": "ID",
+  "tableGroupColumnName": "Group"
+}
