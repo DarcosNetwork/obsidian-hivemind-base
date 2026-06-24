@@ -28,6 +28,9 @@ day: {{date:dddd}}
 - Block 2:
 - Anki / Spaced repetition:
 
+## What I Noticed About Myself
+[Any pattern in how I showed up today. Optional, but the most valuable part of daily reflection if you notice one.]
+
 ## End of Day
 - What actually shipped?
 - What carries to tomorrow?

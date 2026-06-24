@@ -2,38 +2,43 @@
 type: system
 file: CLAUDE.md
 audience: [human, AI agent]
+status: template
 ---
 # Vault Intelligence System — CLAUDE.md
 
-> This file is the vault manual. Humans read it to remember conventions; AI agents (Hermes, future Claude, future subagents) read it to understand what the vault expects of them. Keep it current; every change is a vault-wide convention change.
+> This file is the vault manual. Humans read it to remember conventions; AI agents (Hermes, Claude, future subagents) read it to understand what the vault expects of them. Keep it current; every change to this file is a vault-wide convention change.
 
-## Identity
+> **Template note:** This is the generic, identity-free version of CLAUDE.md. Fork this vault, then replace the contents of the `## Identity` section with your own. Everything below applies to any vault built on this structure.
 
-- **Name:** Adam Darcos
-- **Primary domain:** Medical student — Semmelweis University, Budapest
-- **Stage:** Final-year (Year 6)
-- **Timezone:** Europe/Budapest (CET/CEST)
-- **Languages:** English (primary), Hungarian (native), German + Spanish (beginner)
+## Identity (replace with your own)
+
+- **Name:** [Your name]
+- **Primary domain:** [e.g., "Software engineer", "Medical student", "Researcher"]
+- **Stage:** [Where you are in your field]
+- **Timezone:** [IANA timezone, e.g., "Europe/Budapest"]
+- **Languages:** [List primary languages]
 
 ## Vault Purpose
 
-Long-term personal knowledge management for a Hermes-powered personal AI-OS. The vault holds permanent knowledge; Hermes orchestrates tasks, automation, and synthesis on top of it. Optimised for **retrieval-first** — the goal is to find any note in under 30 seconds.
+Long-term personal knowledge management for an AI-assisted personal OS. The vault holds permanent knowledge; an AI agent (Hermes, Claude, or similar) orchestrates tasks, automation, and synthesis on top of it. Optimised for **retrieval-first** — the goal is to find any note in under 30 seconds.
 
 ## Primary Intellectual Interests
 
-1. Clinical reasoning and differential diagnosis
-2. Cardiology
-3. Neuroanatomy and cognition
-4. Evidence-based medicine and statistics
-5. Personal performance (sleep, focus, exercise)
+*[Section to maintain over time. Five to ten high-level topics. Should be reviewed quarterly.]*
+
+1. 
+2. 
+3. 
+4. 
+5. 
 
 ## Active Projects
 
-*[Section auto-maintained as projects land in `03 - PROJECTS/`. For now: empty.]*
+*[Section auto-maintained as projects land in `03 - PROJECTS/`. Empty by design at launch.]*
 
 ## Active Theses
 
-*[Section auto-maintained after ≥4 weeks of real thinking. Empty by design at launch.]*
+*[Section auto-maintained after ≥4 weeks of real thinking captured. Empty by design at launch.]*
 
 ## Vault Navigation
 
@@ -46,7 +51,7 @@ Long-term personal knowledge management for a Hermes-powered personal AI-OS. The
 | `02 - NOTES/meetings/` | Meeting notes. |
 | `02 - NOTES/study/` | Study-session captures. |
 | `03 - PROJECTS/` | Active multi-step projects with their own `overview.md`, `tasks.md`, `notes/`. |
-| `04 - AREAS/` | Ongoing responsibilities (med-school, business, AI-OS, health, finances). |
+| `04 - AREAS/` | Ongoing responsibilities (work, school, business, health, finances — fill with what's true for you). |
 | `05 - RESOURCES/` | Reference topics, people, tools. |
 | `06 - HERMES-OUTPUTS/` | Agent-generated content — isolated from human notes. |
 | `06 - HERMES-OUTPUTS/briefings/` | Morning briefs. |
@@ -55,8 +60,8 @@ Long-term personal knowledge management for a Hermes-powered personal AI-OS. The
 | `06 - HERMES-OUTPUTS/reviews/` | Project health reviews. |
 | `07 - ARCHIVE/` | Completed/old material. |
 | `08 - SYSTEM/` | This file, templates, skill specs, device-setup docs. |
-| `08 - SYSTEM/templates/` | Templater templates. 7 note types. |
-| `08 - SYSTEM/skills/` | Spec docs for Hermes vault-aware skills. |
+| `08 - SYSTEM/templates/` | Templater templates. Eight note types shipped with the template. |
+| `08 - SYSTEM/skills/` | Spec docs for AI vault-aware skills. |
 | `09 - MOCS/` | Maps of Content — navigational hubs. Build after a topic has ≥15–20 permanent notes. |
 
 ## Note Type Conventions
@@ -69,15 +74,18 @@ Long-term personal knowledge management for a Hermes-powered personal AI-OS. The
 | Literature | `01 - LIBRARY/` | `YYYY-MM-DD-lit-slug.md` | `type: literature`, `citation`, `source-type` |
 | Project | `03 - PROJECTS/[name]/` | `overview.md`, `tasks.md` | `type: project`, `status`, `area`, `completion` |
 | Decision | `02 - NOTES/permanent/` (or `04 - AREAS/`) | `YYYY-MM-DD-dec-slug.md` | `type: decision`, `chosen`, `assumption`, `review_date` |
+| Decision Review | `02 - NOTES/permanent/` | `YYYY-MM-DD-dec-review-slug.md` | `type: decision-review`, `original-decision` |
 | Reference | `05 - RESOURCES/topics/` | `slug.md` | `type: reference`, `subject` |
 
 **Filename rule:** always include date prefix. Slugs lowercase, hyphenated. `TYPE` code is optional (helps search); `slug` is required.
+
+**Decision placement:** decision notes can live in `02 - NOTES/permanent/` (cross-cutting) or `04 - AREAS/<area>/` (area-specific). Pick by reach: if the decision affects one area, place it there; if it affects multiple, place it in permanent.
 
 ## Tagging Conventions
 
 - **Structured prefixes only.** `p:` for high-level domains (`p:medicine`, `p:finance`), `system:` for body systems, `level:` for study level, `status:` for workflow states, `mode:` for study mode (`mode:anki`, `mode:lecture`).
 - **No one-off free-form tags.** Only create a tag if it'll appear on ≥5 notes.
-- **Dataview queries (Phase 3+):** build queries against `type`, `status`, `tags`, `area` first; query against `connections` only when needed.
+- **Dataview queries:** build queries against `type`, `status`, `tags`, `area` first; query against `connections` only when needed.
 
 ## Intelligence Instructions (for AI agents)
 
@@ -88,7 +96,8 @@ When acting on this vault:
 3. **Generating syntheses:** add new structure or insight beyond what's in the existing notes. Don't paraphrase the source notes back.
 4. **Detecting patterns:** require ≥3–4 independent notes before naming a pattern. Two notes is coincidence.
 5. **Writing in the vault:** never write directly into `02 - NOTES/permanent/` from a synthesis without leaving a backlink in the source note. Atomic notes belong to humans; agent output belongs in `06 - HERMES-OUTPUTS/`.
-6. **Modifying this file:** a change to CLAUDE.md is a vault-wide convention change. Log it in the commit message with full reasoning.
+6. **Modifying CLAUDE.md:** a change to this file is a vault-wide convention change. Log it in the commit message with full reasoning.
+7. **Honoring secrets:** never write secrets into notes. The vault's `.gitignore` excludes `attachments/secrets/` for a reason. If you discover a secret in a note during processing, flag it to the user and move it out of the tracked vault.
 
 ## Update Schedule
 
@@ -97,31 +106,22 @@ When acting on this vault:
 - **Primary interests section:** quarterly, only after deliberate re-evaluation.
 - **Navigation / conventions:** as needed; bumps the file's git log.
 
-## Known Divergences from Original Masterclass Proposal
-
-These were discussed in the planning phase and intentionally not adopted:
-
-1. **Filesystem MCP** — Hermes already has native file tools (`read_file`, `write_file`, `patch`, `search_files`); the `obsidian` skill wraps them with vault-aware helpers. Filesystem MCP adds nothing for our use case and would create a second tool surface to maintain.
-2. **Hermes skill placement** — code lives in `~/.hermes/skills/` (Hermes convention), specs/docs live in `08 - SYSTEM/skills/specs/` (vault convention). Two homes, two purposes.
-3. **Plugin scope at launch** — only Templater, Dataview, and Obsidian Git are installed. The remaining 11 plugins from the original spec are added per-friction-need, not upfront.
-4. **Anki integration, NotebookLM pipelines, multi-vault, smart connections, quarterly review automation** — all deferred until observed need. Not built before being needed.
-
 ## Sync Model
 
-- **Source of truth:** VPS (`/root/Documents/Obsidian Vault/`, Tailscale IP `100.96.209.60`).
-- **Versioning:** private GitHub repo `DarcosNetwork/obsidian-hivemind`.
-- **Auto-commit:** Obsidian Git plugin, every 30 minutes.
+- **Source of truth:** wherever you host this vault (a VPS, your local machine, a NAS). The `08 - SYSTEM/device-setup.md` document captures the specifics for your topology.
+- **Versioning:** private git repo (this one). 
+- **Auto-commit:** depends on the Obsidian Git plugin configuration in `.obsidian/plugins/obsidian-git/data.json`.
 - **Auto-push:** enabled on devices where credentials permit.
 - **Manual override:** always available; nothing in this vault is gated on automation.
 
 ## Security
 
-- Vault contents are personal and unencrypted at rest on the VPS. Acceptable per the "VPS is single-tenant, Tailscale-only ingress" model.
-- Secrets must NEVER live in notes. Drop in `attachments/secrets/` (gitignored) and reference the path only.
-- Patient-identifiable information must NEVER live in this vault. Use a separate secure storage (Bitwarden / Vaultwarden / paper) for any PHI.
+- Vault contents are personal and unencrypted at rest on the host. Acceptable for single-tenant, controlled-access setups.
+- Secrets must NEVER live in notes. The vault's `.gitignore` excludes `attachments/secrets/`; use that for anything sensitive.
+- Personally identifiable information about other people (medical, financial, etc.) must NEVER live in this vault unless you have explicit consent and a documented need. Use a separate secure storage for any PHI / PII.
 
 ## See also
 
-- `/root/.hermes/plans/2026-06-24_obsidian-second-brain.md` — the plan that built this vault.
-- `08 - SYSTEM/device-setup.md` — how to connect desktop/mobile (Phase 4).
-- `08 - SYSTEM/templates/` — the 7 note templates.
+- `00 - INBOX/2026-06-24 — Vault Setup Notes.md` — what was set up at template creation time, what's open for the fork owner to decide.
+- `08 - SYSTEM/device-setup.md` — how to connect desktop/mobile clients (set up after first fork).
+- `08 - SYSTEM/templates/` — the 8 note templates shipped with this vault.

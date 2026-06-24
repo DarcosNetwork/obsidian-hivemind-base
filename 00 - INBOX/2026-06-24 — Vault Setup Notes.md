@@ -1,40 +1,36 @@
-# 2026-06-24 — Vault Setup Notes
+# 2026-06-24 — Vault Setup Notes (Template)
 
-> First note in the vault. Captures *what was set up, why, and what's open* so future-you (or future-Hermes) can reconstruct the decisions without asking.
+> First note in the template vault. Captures *what was set up at template-creation time and what's open for the fork owner* so future-you (or future-Hermes) can reconstruct the decisions without asking.
 
-## What's running
+> **You are reading the template version.** If you forked this vault for personal use, replace the contents of this file with your own setup notes after first clone.
 
-- **Vault path:** `/root/Documents/Obsidian Vault/`
-- **Remote:** `https://github.com/DarcosNetwork/obsidian-hivemind` (private, created 2026-06-24)
-- **Sync model:** VPS is source of truth. Desktop/iPad/iPhone reach it via Tailscale SSH/SFTP. Versioning through git commits (auto-commit via Obsidian Git plugin, manual push or auto-push).
-- **Mobile access:** Obsidian mobile clients connect over Tailscale to `100.96.209.60:22` (SSH/SFTP). Auth = Tailscale identity (Option A from the plan).
-- **Folder structure:** 9 top-level folders per spec section 2. See `08 - SYSTEM/CLAUDE.md` (Phase 2) for the navigation index.
+## What's running in this template
 
-## What was decided
+- **Vault path:** wherever you cloned this repo.
+- **Remote:** the GitHub repo you forked from.
+- **Sync model:** depends on your topology (VPS source of truth, local source of truth, etc.). The `08 - SYSTEM/device-setup.md` doc captures the specifics.
+- **Folder structure:** 9 top-level folders. See `08 - SYSTEM/CLAUDE.md` for the navigation index.
 
-| Decision | Choice | Why |
-|---|---|---|
-| Vault location | VPS, served via Tailscale | Matches "VPS is single-tenant, Tailscale-only ingress" model |
-| Versioning | Private GitHub repo (`obsidian-hivemind`) | Auditable history, branchable experiments, multi-device |
-| File format | Markdown (.md) | Hermes reads/writes these natively, no Obsidian-binary lock-in |
-| Ignored in git | `.obsidian/workspace.json`, plugins data, secrets folder | Per-device local state + sensitive material |
-| Folder structure | Full 9-folder spec (sections 2 of the masterclass proposal) | Deferred-then-resolved: spec was chosen over v0-minimal after the plan-phase conversation |
-| Plugin scope (initial) | Templater, Dataview, Obsidian Git only | Add the rest of the spec's 14 plugins per-friction-need |
-| Hermes skill scope | None at launch; skills live in `~/.hermes/skills/` with specs in `08 - SYSTEM/skills/specs/` | Hermes convention for code, vault convention for docs |
+## What's open for the fork owner to decide
 
-## What's intentionally NOT decided yet
+These are choices you need to make *for your fork*:
 
-- **Hermes vault-aware skills** (`vault-morning-brief`, `inbox-processor`, `project-health`, `connection-finder`, `weekly-synthesis`) — all deferred to Phase 5 of the plan. Trigger conditions documented in `/root/.hermes/plans/2026-06-24_obsidian-second-brain.md`.
-- **Active theses in CLAUDE.md** — populated after 4+ weeks of real thinking captured.
-- **First MOC in `09 - MOCS/`** — emerges when a topic has ≥15–20 permanent notes. Currently empty.
-- **Commit cadence** — Obsidian Git will auto-commit every 30 min; auto-push on. Override on device if needed.
+1. **Identity in CLAUDE.md.** Replace the placeholder `## Identity` section with your own name, domain, timezone, languages.
+2. **Primary Intellectual Interests.** Populate the section with your top 5–10 topics. Review quarterly.
+3. **Plugin install.** Templater, Dataview, and Obsidian Git are recommended for the workflow to work end-to-end. Add others as friction appears.
+4. **Templater trigger settings.** Configure whether templates auto-apply on new note creation or only on demand.
+5. **Sync topology.** Where does this vault physically live? Who's the source of truth? How do devices reach it?
+6. **AI integration.** Are you wiring this to an AI agent (Hermes, Claude, etc.)? If so, which skills do you want to enable first?
 
-## Where the plan lives
+## Conventions shipped with this template
 
-Full plan with phases, tasks, risks, open questions, and execution log: `/root/.hermes/plans/2026-06-24_obsidian-second-brain.md` (on the VPS, not in the vault — plans are Hermes-internal, not vault content).
+- **Filenames:** `YYYY-MM-DD-TYPE-slug.md` for dated notes; `topic-name.md` for evergreen references.
+- **Frontmatter:** `type`, `created`, `updated`, `tags` on every note. Note-type-specific additions documented in `CLAUDE.md`.
+- **Wikilinks:** `[[Note Name]]` for internal references; Obsidian resolves them.
+- **Sensitive material:** never in notes. If a secret must live somewhere, drop it in `attachments/secrets/` (gitignored) and link to the path from the note.
 
 ## Operating notes
 
-- Hermes reads `OBSIDIAN_VAULT_PATH` from `~/.hermes/.env` — set this session.
-- To open the vault in Obsidian desktop over Tailscale: SSH host `100.96.209.60`, port `22`, user `root`, path `/root/Documents/Obsidian Vault`. (Device-setup guide lands in `08 - SYSTEM/device-setup.md` during Phase 4.)
-- iOS Obsidian: add remote SFTP folder with the same coordinates. Files appear in Obsidian's "Open vault → SFTP" picker.
+- This vault is template-clean: no real notes, no identity information, no specific tooling wiring.
+- After forking, your first action should be to edit `08 - SYSTEM/CLAUDE.md` Identity section and rename this setup-notes file.
+- See `08 - SYSTEM/CLAUDE.md` for full conventions and intelligence instructions for AI agents.

@@ -24,3 +24,6 @@ source: []
 
 ## Source
 - [[ ]] — [what the source contributed]
+
+## Open Question
+[What does this note make me want to investigate next? Single line. The note isn't finished if you can't answer this.]

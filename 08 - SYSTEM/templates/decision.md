@@ -27,11 +27,20 @@ tags: []
 ## Counter-Evidence
 [What would have to be true for you to reverse this decision. Be honest.]
 
+## What Success Looks Like
+[Specific observable outcome at review date. Not a feeling — a measurement.]
+
+## Early Warning Signs
+[How do I know this is going wrong before it's too late? Three signals to watch.]
+- 
+- 
+- 
+
 ## Review Date
-{{date:YYYY-MM-DD}}  # revisit on this date and check whether the assumption still holds
+{{date:YYYY-MM-DD}}  # default: 90 days from creation. Override if this is faster or slower.
 
 ## Outcome
-[Fill in at review time. Did the decision play out as expected?]
+[Fill in at review time. Did the decision play out as expected? Then create a `decision-review` note linking back here.]
 
 ## Connections
 - [[ ]] — [supporting evidence or related decision]
