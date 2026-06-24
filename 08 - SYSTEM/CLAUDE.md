@@ -15,7 +15,7 @@ status: template
 - **Name:** [Your name]
 - **Primary domain:** [e.g., "Software engineer", "Medical student", "Researcher"]
 - **Stage:** [Where you are in your field]
-- **Timezone:** [IANA timezone, e.g., "Europe/Budapest"]
+- **Timezone:** [IANA timezone, e.g., "America/New_York"]
 - **Languages:** [List primary languages]
 
 ## Vault Purpose
