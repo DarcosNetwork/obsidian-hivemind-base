@@ -1,0 +1,63 @@
+# =========================================================
+# OBSIDIAN — never commit local-only state
+# =========================================================
+# Each Obsidian client regenerates this for itself on first run.
+# We keep it out of git so the file stays local, but we do NOT
+# commit it because per-device plugins/CSS/layout diverges.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/*/data.json
+.obsidian/plugins/*/.hot-reload
+.trash/
+.DS_Store
+Thumbs.db
+
+# =========================================================
+# SECRETS — never commit
+# =========================================================
+# If a note accidentally lands an API key, password, or token,
+# it goes in here. The folder itself is git-tracked (so it
+# exists on every device) but its contents are ignored.
+# Empty directories need a .gitkeep to survive git checkout.
+attachments/secrets/**
+!attachments/secrets/.gitkeep
+
+# Any note that the user explicitly marks sensitive by name
+# (e.g. `credentials.md`, `api-keys.md`, `passwords.md`)
+**/credentials.md
+**/api-keys.md
+**/api-keys*.md
+**/passwords.md
+**/*-credentials.md
+**/*-api-keys.md
+
+# Environment files always belong outside the vault, but guard
+# against accidental drag-and-drop.
+.env
+.env.*
+
+# =========================================================
+# ATTACHMENTS — by default tracked, but heavy blobs excluded
+# =========================================================
+# We DO want most attachments under git for multi-device sync.
+# But audio/video over 5MB are noise — pin them per-folder
+# if you want them synced (e.g. `#track` or `#gitkeep` tag).
+*.mp4
+*.mov
+*.webm
+*.mp3
+*.wav
+*.m4a
+
+# =========================================================
+# Worktrees / transient tooling
+# =========================================================
+*.swp
+*.swo
+*~
+.nova/
+.idea/
+.vscode/
+
+# Hermes scratch state if it ever writes to the vault
+.hermes-tmp/
